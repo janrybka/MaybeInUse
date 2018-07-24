@@ -4,4 +4,16 @@
     <TargetFramework>netcoreapp2.1</TargetFramework>
   </PropertyGroup>
 
+  <ItemGroup>
+    <Compile Remove="ExampleUsage.cs" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <None Include="ExampleUsage.cs" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <PackageReference Include="CSharpFunctionalExtensions" Version="1.10.0" />
+  </ItemGroup>
+
 </Project>

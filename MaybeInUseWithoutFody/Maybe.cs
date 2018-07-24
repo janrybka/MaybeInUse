@@ -1,7 +1,6 @@
 ﻿using System;
-using NullGuard;
 
-namespace MaybeInUse
+namespace MaybeInUseWithoutFody
 {
     public struct Maybe<T> : IEquatable<Maybe<T>>
     {
@@ -22,12 +21,12 @@ namespace MaybeInUse
         public bool HasValue => _value != null;
         public bool HasNoValue => !HasValue;
 
-        private Maybe([AllowNull] T value)
+        private Maybe(T value)
         {
             _value = value;
         }
 
-        public static implicit operator Maybe<T>([AllowNull] T value)
+        public static implicit operator Maybe<T>(T value)
         {
             return new Maybe<T>(value);
         }

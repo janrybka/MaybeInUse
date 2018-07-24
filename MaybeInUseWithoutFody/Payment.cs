@@ -1,13 +1,13 @@
 ﻿using System;
 
-namespace MaybeInUse
+namespace MaybeInUseWithoutFody
 {
     public class Payment
     {
         public Payment(string correlationId, string appCode)
         {
-            CorrelationId = correlationId;
-            AppCode = appCode;
+            CorrelationId = correlationId ?? throw new ArgumentNullException(nameof(correlationId));
+            AppCode = appCode ?? throw new ArgumentNullException(nameof(correlationId));
         }
 
         public Maybe<string> CorrelationId { get; private set; }
@@ -15,7 +15,7 @@ namespace MaybeInUse
 
         public void ChangeCorrelationId(string correlationId)
         {
-            this.CorrelationId = correlationId;
+            this.CorrelationId = correlationId ?? throw new ArgumentNullException(nameof(correlationId));
         }
 
         public void MaybeChangeCorrelationId(Maybe<string> correlationId)

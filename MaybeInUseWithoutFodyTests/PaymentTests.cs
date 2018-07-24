@@ -1,4 +1,4 @@
-using MaybeInUse;
+using MaybeInUseWithoutFody;
 using System;
 using Xunit;
 
@@ -24,8 +24,8 @@ namespace MaybeTests
             payment.MaybeChangeCorrelationId(null);
         }
 
-        //[Fact]
-        private void Call_a_method_test_fails()
+        [Fact]
+        public void Call_a_method_test_fails()
         {
             var payment = new Payment("Order1", "SCHOOLS");
 
